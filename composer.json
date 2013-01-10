@@ -1,5 +1,5 @@
 {
-    "name": "plasmaconduit/option"
+    "name": "plasmaconduit/option",
     "require-dev": {
         "phpspec/phpspec2": "*"
     },
