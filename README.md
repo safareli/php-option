@@ -34,13 +34,11 @@ function updateLastSeen($username) {
     return $username;
 }
 
-// fetch the user
-$userOption = fetchUser("Joseph");
-
-// If the user exists update the last time that user was seen and
-// echo out that users name. If the user doesn't exist do not update
-// the last time that user was seen and print out "No such user." instead.
-echo $userOption->map("updateLastSeen")->getOrElse("No such user.");
+// Fetch the user "Joseph". If the "Joseph" exists update the last time
+// that "Joseph" was seen and echo "Joseph". If the "Joseph" doesn't exist
+// do not update the last time any user was seen and print out "No such user."
+// instead.
+echo fetchUser("Joseph")->map("updateLastSeen")->getOrElse("No such user.");
 ```
 
 Documentation
