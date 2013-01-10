@@ -1,6 +1,6 @@
 <?php
 namespace PlasmaConduit\option;
-use PlasmaConduit\Option;
+use PlasmaConduit\option\Option;
 use Exception;
 
 class None implements Option {

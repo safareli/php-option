@@ -1,5 +1,5 @@
 <?php
-namespace PlasmaConduit;
+namespace PlasmaConduit\option;
 
 interface Option {
 
