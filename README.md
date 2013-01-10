@@ -29,7 +29,10 @@ function fetchUser($username) {
     }
 }
 
-function updateLastSeen($username) { /* psuedo */ }
+function updateLastSeen($username) {
+    PsuedoDB::updateLastSeen($username);
+    return $username;
+}
 
 // fetch the user
 $userOption = fetchUser("Joseph");
