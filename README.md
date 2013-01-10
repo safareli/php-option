@@ -16,8 +16,98 @@ encourages you to write in a more expressive style.
 
 ```php
 <?php
+use PlasmaConduit\option\Option;
+use PlasmaConduit\option\Some;
+use PlasmaConduit\option\None;
 
+function fetchUser($username) {
+    $user = PsuedoDB::get($username);
+    if ($user) {
+        return new Some($user);
+    } else {
+        return new None();
+    }
+}
+
+function updateLastSeen($username) { /* psuedo */ }
+
+// fetch the user
+$userOption = fetchUser("Joseph");
+
+// If the user exists update the last time that user was seen and
+// echo out that users name. If the user doesn't exist do not update
+// the last time that user was seen and print out "No such user." instead.
+echo $userOption->map("updateLastSeen")->getOrElse("No such user.");
 ```
+
+Documentation
+-------------
+Both `Some` and `None` implement the `Option` interface which is as follows:
+```
+<?php
+interface Option {
+
+    public function isEmpty();
+    public function nonEmpty();
+    public function get();
+    public function getOrElse($default);
+    public function orElse(Option $alternative);
+    public function orNull();
+    public function toLeft($right);
+    public function toRight($left);
+    public function map($f);
+
+}
+```
+
+### Some
+This class is representitive of the presence of a value within an `Option`
+container.
+
+#### Some#__construct($value)
+
+#### Some#isEmpty()
+
+#### Some#nonEmpty()
+
+#### Some#get()
+
+#### Some#getOrElse($default)
+
+#### Some#orElse(Option $alternative)
+
+#### Some#orNull()
+
+#### Some#toLeft($right)
+
+#### Some#toRight($left)
+
+#### Some#map(callable $f)
+
+### None
+This class is representitive of the absence of a value within an `Option`
+container.
+
+#### None#__construct($value)
+
+#### None#isEmpty()
+
+#### None#nonEmpty()
+
+#### None#get()
+
+#### None#getOrElse($default)
+
+#### None#orElse(Option $alternative)
+
+#### None#orNull()
+
+#### None#toLeft($right)
+
+#### None#toRight($left)
+
+#### None#map(callable $f)
+
 
 Developing
 ----------
