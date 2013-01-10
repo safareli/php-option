@@ -1,7 +1,7 @@
 <?php
-namespace spec\option;
+namespace spec\PlasmaConduit\option;
 use PHPSpec2\ObjectBehavior;
-use option\Some;
+use PlasmaConduit\option\Some;
 
 class None extends ObjectBehavior {
 
@@ -13,7 +13,7 @@ class None extends ObjectBehavior {
     }
 
     function it_should_be_initializable() {
-        $this->shouldHaveType("option\None");
+        $this->shouldHaveType("PlasmaConduit\option\None");
     }
 
     function it_should_return_true_for_isEmpty() {

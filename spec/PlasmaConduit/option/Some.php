@@ -1,7 +1,7 @@
 <?php
-namespace spec\option;
+namespace spec\PlasmaConduit\option;
 use PHPSpec2\ObjectBehavior;
-use option\Some as Real;
+use PlasmaConduit\option\Some as Real;
 
 class Some extends ObjectBehavior {
 
@@ -13,7 +13,7 @@ class Some extends ObjectBehavior {
     }
 
     function it_should_be_initializable() {
-        $this->shouldHaveType("option\Some");
+        $this->shouldHaveType("PlasmaConduit\option\Some");
     }
 
     function it_should_return_false_for_isEmpty() {

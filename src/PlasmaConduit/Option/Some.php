@@ -1,6 +1,6 @@
 <?php
-namespace option;
-use Option;
+namespace PlasmaConduit\option;
+use PlasmaConduit\Option;
 
 class Some implements Option {
 
