@@ -42,7 +42,7 @@ echo fetchUser("Joseph")->map("updateLastSeen")->getOrElse("No such user.");
 Documentation
 -------------
 Both `Some` and `None` implement the `Option` interface which is as follows:
-```
+```php
 <?php
 interface Option {
 
@@ -136,33 +136,33 @@ return `Some`.
 This class is representitive of the absence of a value within an `Option`
 container.
 
-#### Some#__construct($value)
+#### None#__construct($value)
 This constructor takes an optional value and completely disregards it
 
   * @param {Any} $value - A value to do nothing with
 
-#### Some#isEmpty()
+#### None#isEmpty()
 This function is used to signify if the `Option` type is empty. This is
 the `None` class and the class type carries this information so this method
 will always return true.
 
   * @returns {Boolean} - Always true
 
-#### Some#nonEmpty()
+#### None#nonEmpty()
 This function is used to signify if the `Option` type is not empty. This is
 the `None` class and the class type carries this information so this method
 will always return false.
 
   * @returns {Boolean} - Always false
 
-#### Some#get()
+#### None#get()
 This function should never get called on `None` So it always throws an
 excaption
 
   * @throws - unconditionally
   * @returns {void}
 
-#### Some#getOrElse($default)
+#### None#getOrElse($default)
 This function will return the wrapped value if the `Option` type is `Some` and
 if it's `None` it will return `$default` instead. Seeing how this is the `None`
 class, this will always return the `$default` value
@@ -170,7 +170,7 @@ class, this will always return the `$default` value
   * @ param {Any} $default - The default value if no value is present
   * @ returns {Any}        - The default value
 
-#### Some#orElse(Option $alternative)
+#### None#orElse(Option $alternative)
 This function takes an alternative `Option` type and if this `Option` type is
 `None` it returns the alternative type. However, this is the `None` class so
 it will always return the `$alternative`.
@@ -178,7 +178,7 @@ it will always return the `$alternative`.
   * @param {Option} $alternative - The alternative `Option`
   * @returns {Option}            - Always returns `$alternative`
 
-#### Some#orNull()
+#### None#orNull()
 For those moments when you just need either a value or null. This function
 returns the wrapped value when called on the `Some` class and returns `null`
 when called on the `None` class. This is the `None` class so it will always
@@ -186,13 +186,13 @@ return null
 
   * @returns {null} - Always null
 
-#### Some#toLeft($right)
+#### None#toLeft($right)
 Not yet implemented
 
-#### Some#toRight($left)
+#### None#toRight($left)
 Not yet implemented
 
-#### Some#map(callable $f)
+#### None#map(callable $f)
 This method takes a callable type (closure, function, etc) and if it's called on
 a `Some` instance it will call the function `$f` with the wrapped value and the
 value returend by `$f` will be wrapped in a new `Some` container and that new
