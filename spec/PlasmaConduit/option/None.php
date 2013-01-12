@@ -42,10 +42,34 @@ class None extends ObjectBehavior {
         $this->orNull()->shouldReturn(null);
     }
 
-    function it_should_run_the_callable_for_map() {
+    function it_should_not_run_the_callable_for_map() {
         $this->map(function($value) {
             return self::ALTERNATIVE;
         })->orNull()->shouldReturn(null);
+    }
+
+    function it_should_throw_when_map_is_called_with_number() {
+        $this->shouldThrow()->duringMap(123);
+    }
+
+    function it_should_return_None_for_flatMap() {
+        $this->flatMap(function($value) {
+            return $value;
+        })->shouldHaveType("PlasmaConduit\option\None");
+    }
+
+    function it_should_throw_when_flatMap_is_called_with_number() {
+        $this->shouldThrow()->duringFlatMap(123);
+    }
+
+    function it_should_return_None_for_filter() {
+        $this->filter(function($value) {
+            return !!$value;
+        })->shouldHaveType("PlasmaConduit\option\None");
+    }
+
+    function it_should_throw_when_filter_is_called_with_number() {
+        $this->shouldThrow()->duringFilter(123);
     }
 
 }

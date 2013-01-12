@@ -46,4 +46,40 @@ class Some extends ObjectBehavior {
         })->get()->shouldReturn("mapped");
     }
 
+    function it_should_throw_when_map_is_called_with_number() {
+        $this->shouldThrow()->duringMap(123);
+    }
+
+    function it_should_run_the_callable_for_flatMap() {
+        $this->flatMap(function($value) {
+            return new Real("flatMapped");
+        })->get()->shouldReturn("flatMapped");
+    }
+
+    function it_should_throw_when_flatMap_is_called_with_number() {
+        $this->shouldThrow()->duringFlatMap(123);
+    }
+
+    function it_should_throw_when_flatMap_returns_non_option() {
+        $this->shouldThrow()->duringFlatMap(function(){
+            return "boom";
+        });
+    }
+
+    function it_should_return_Some_when_filter_passes() {
+        $this->filter(function($value) {
+            return true;
+        })->shouldHaveType("PlasmaConduit\option\Some");
+    }
+
+    function it_should_return_None_when_filter_fails() {
+        $this->filter(function($value) {
+            return false;
+        })->shouldHaveType("PlasmaConduit\option\None");
+    }
+
+    function it_should_throw_when_filter_is_called_with_number() {
+        $this->shouldThrow()->duringFilter(123);
+    }
+
 }

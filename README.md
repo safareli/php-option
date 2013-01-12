@@ -54,7 +54,9 @@ interface Option {
     public function orNull();
     public function toLeft($right);
     public function toRight($left);
-    public function map($f);
+    public function map($mapper);
+    public function flatMap($flatMapper);
+    public function filter($predicate);
 
 }
 ```
