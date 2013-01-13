@@ -1,7 +1,7 @@
 <?php
 namespace spec\PlasmaConduit\option;
 use PHPSpec2\ObjectBehavior;
-use PlasmaConduit\option\Some;
+use PlasmaConduit\option\Some as RealSome;
 
 class None extends ObjectBehavior {
 
@@ -33,7 +33,7 @@ class None extends ObjectBehavior {
     }
 
     function it_should_return_this_for_orElse() {
-        $this->orElse(new Some(self::ALTERNATIVE))
+        $this->orElse(new RealSome(self::ALTERNATIVE))
              ->get()
              ->shouldReturn(self::ALTERNATIVE);
     }
