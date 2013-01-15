@@ -51,7 +51,11 @@ class None implements Option {
      * @ return {Any}         - The `$default` value
      */
     public function getOrElse($default) {
-        return $default;
+        if (is_callable($default)) {
+            return $default();
+        } else {
+            return $default;
+        }
     }
 
     /**
