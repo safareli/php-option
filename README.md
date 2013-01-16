@@ -40,7 +40,7 @@ echo fetchUser("Joseph")->map("updateLastSeen")->getOrElse("No such user.");
 ```
 
 Documentation
-=============
+-------------
 This library implements two classes that both implement the `Option` interface.
 These classes are `Some` and `None`.
 
