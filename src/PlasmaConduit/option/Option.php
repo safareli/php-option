@@ -47,7 +47,7 @@ interface Option {
     /**
      * For those moments when you just need either a value or null. This
      * function returns the wrapped value when called on the `Some` class and
-     * returns null when called on the `None` class. 
+     * returns null when called on the `None` class.
      *
      * @return {Any|null} - The wrapped value or null
      */
