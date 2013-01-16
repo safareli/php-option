@@ -1,5 +1,8 @@
 Option
 ======
+
+[![Build Status](https://travis-ci.org/JosephMoniz/php-option.png?branch=master)](undefined)
+
 Strongly typed alternative to null. The Option type in this package is based
 off of the Option typeclass from Scala and the Maybe monad from Haskell.
 
