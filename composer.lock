@@ -7,12 +7,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/JosephMoniz/php-either",
-                "reference": "27997eed5cb32c08239fb2e5bd28a6fdd0dcdd3c"
+                "reference": "69318790339fd62ba39ddaa3df0a36bb8fc826d2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/JosephMoniz/php-either/archive/27997eed5cb32c08239fb2e5bd28a6fdd0dcdd3c.zip",
-                "reference": "27997eed5cb32c08239fb2e5bd28a6fdd0dcdd3c",
+                "url": "https://github.com/JosephMoniz/php-either/archive/69318790339fd62ba39ddaa3df0a36bb8fc826d2.zip",
+                "reference": "69318790339fd62ba39ddaa3df0a36bb8fc826d2",
                 "shasum": ""
             },
             "require": {
@@ -21,7 +21,7 @@
             "require-dev": {
                 "phpspec/phpspec2": "*"
             },
-            "time": "2013-01-14 04:44:11",
+            "time": "2013-01-16 05:47:13",
             "type": "library",
             "autoload": {
                 "psr-0": {
