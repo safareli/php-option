@@ -32,8 +32,40 @@ class Some extends ObjectBehavior {
         $this->getOrElse(self::ALTERNATIVE)->shouldReturn(self::VALUE);
     }
 
+    function it_should_return_the_value_for_getOrElse_with_callable() {
+        $this->getOrElse(function() {
+            return None::ALTERNATIVE;
+        })->shouldReturn(self::VALUE);
+    }
+
     function it_should_return_this_for_orElse() {
         $this->orElse(new Real(self::ALTERNATIVE))->shouldReturn($this);
+    }
+
+    function it_should_return_this_for_orElse_with_callable() {
+        $this->orElse(function() {
+            return new Real(None::ALTERNATIVE);
+        })->get()->shouldReturn(self::VALUE);
+    }
+
+    function it_should_return_a_left_projection_for_toLeft() {
+        $this->toLeft(self::ALTERNATIVE)
+             ->shouldHaveType("PlasmaConduit\either\Left");
+    }
+
+    function it_should_return_a_evaluated_left_projection_for_toLeft() {
+        $this->toLeft(function() { return None::ALTERNATIVE; })
+             ->shouldHaveType("PlasmaConduit\either\Left");
+    }
+
+    function it_should_return_a_right_projection_for_toRight() {
+        $this->toRight(self::ALTERNATIVE)
+             ->shouldHaveType("PlasmaConduit\either\Right");
+    }
+
+    function it_should_return_a_evaluated_right_projection_for_toRight() {
+        $this->toRight(function() { return None::ALTERNATIVE; })
+             ->shouldHaveType("PlasmaConduit\either\Right");
     }
 
     function it_should_return_null_for_orNull() {
