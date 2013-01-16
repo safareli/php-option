@@ -15,7 +15,7 @@ class None extends ObjectBehavior {
     }
 
     function it_should_be_initializable() {
-        $this->shouldHaveType("PlasmaConduit\option\None");
+        $this->shouldHaveType('PlasmaConduit\option\None');
     }
 
     function it_should_return_true_for_isEmpty() {
@@ -27,7 +27,7 @@ class None extends ObjectBehavior {
     }
 
     function it_should_throw_for_get() {
-        $this->shouldThrow("\Exception")->duringGet();
+        $this->shouldThrow('\Exception')->duringGet();
     }
 
     function it_should_return_the_alternative_for_getOrElse() {
@@ -58,22 +58,22 @@ class None extends ObjectBehavior {
 
     function it_should_return_a_right_projection_for_toLeft() {
         $this->toLeft(self::ALTERNATIVE)
-             ->shouldHaveType("PlasmaConduit\either\Right");
+             ->shouldHaveType('PlasmaConduit\either\Right');
     }
 
     function it_should_return_a_evaluated_right_projection_for_toLeft() {
         $this->toLeft(function() { return None::ALTERNATIVE; })
-             ->shouldHaveType("PlasmaConduit\either\Right");
+             ->shouldHaveType('PlasmaConduit\either\Right');
     }
 
     function it_should_return_a_left_projection_for_toRight() {
         $this->toRight(self::ALTERNATIVE)
-             ->shouldHaveType("PlasmaConduit\either\Left");
+             ->shouldHaveType('PlasmaConduit\either\Left');
     }
 
     function it_should_return_a_evaluated_left_projection_for_toRight() {
         $this->toRight(function() { return None::ALTERNATIVE; })
-             ->shouldHaveType("PlasmaConduit\either\Left");
+             ->shouldHaveType('PlasmaConduit\either\Left');
     }
 
     function it_should_return_null_for_orNull() {
@@ -93,7 +93,7 @@ class None extends ObjectBehavior {
     function it_should_return_None_for_flatMap() {
         $this->flatMap(function($value) {
             return $value;
-        })->shouldHaveType("PlasmaConduit\option\None");
+        })->shouldHaveType('PlasmaConduit\option\None');
     }
 
     function it_should_throw_when_flatMap_is_called_with_number() {
@@ -103,7 +103,7 @@ class None extends ObjectBehavior {
     function it_should_return_None_for_filter() {
         $this->filter(function($value) {
             return !!$value;
-        })->shouldHaveType("PlasmaConduit\option\None");
+        })->shouldHaveType('PlasmaConduit\option\None');
     }
 
     function it_should_throw_when_filter_is_called_with_number() {
