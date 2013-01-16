@@ -63,14 +63,19 @@ class Some implements Option {
     }
 
     /**
-     * This function takes an alternative `Option` type and if this `Option`
-     * type is `None` it returns the alternative type. However, this is the
-     * `Some` class so it will always return itself.
+     * This function takes an alternative `Option` type or callable and if
+     * this `Option` type is `None` it returns the evalutated alternative type.
+     * However, this is the `Some` class so it will always return itself.
      *
-     * @param {Option} $alternative - The alternative Option
-     * @return {Option}             - Always returns itself
+     * @param {callable|Option} $alternative - The alternative Option
+     * @return {Option}                      - Always returns itself
      */
-    public function orElse(Option $alternative) {
+    public function orElse($alternative) {
+        if (!is_callable($alternative) && !($alternative instanceof Option)) {
+            throw new Exception(
+                "Can't call Some#orElse() with non option or callable"
+            );
+        }
         return $this;
     }
 
