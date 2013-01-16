@@ -1,5 +1,7 @@
 <?php
 namespace PlasmaConduit\option;
+use PlasmaConduit\either\Left;
+use PlasmaConduit\either\Right;
 use PlasmaConduit\option\Option;
 use Exception;
 

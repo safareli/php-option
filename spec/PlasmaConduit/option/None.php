@@ -2,6 +2,8 @@
 namespace spec\PlasmaConduit\option;
 use PHPSpec2\ObjectBehavior;
 use PlasmaConduit\option\Some as RealSome;
+use PlasmaConduit\either\Left;
+use PlasmaConduit\either\Right;
 
 class None extends ObjectBehavior {
 
@@ -32,10 +34,46 @@ class None extends ObjectBehavior {
         $this->getOrElse(self::ALTERNATIVE)->shouldReturn(self::ALTERNATIVE);
     }
 
-    function it_should_return_this_for_orElse() {
+    function it_should_return_the_computed_alternative_for_getOrElse() {
+        $this->getOrElse(function() {
+            return None::ALTERNATIVE;
+        })->shouldReturn(self::ALTERNATIVE);
+    }
+
+    function it_should_return_alternative_for_orElse() {
         $this->orElse(new RealSome(self::ALTERNATIVE))
              ->get()
              ->shouldReturn(self::ALTERNATIVE);
+    }
+
+    function it_should_return_evaluated_alternative_for_orElse() {
+        $this->orElse(function() {
+            return new RealSome(None::ALTERNATIVE);
+        })->get()->shouldReturn(self::ALTERNATIVE);
+    }
+
+    function it_should_throw_for_orElse_when_called_with_number() {
+        $this->shouldThrow()->duringOrElse(123);
+    }
+
+    function it_should_return_a_right_projection_for_toLeft() {
+        $this->toLeft(self::ALTERNATIVE)
+             ->shouldHaveType("PlasmaConduit\either\Right");
+    }
+
+    function it_should_return_a_evaluated_right_projection_for_toLeft() {
+        $this->toLeft(function() { return None::ALTERNATIVE; })
+             ->shouldHaveType("PlasmaConduit\either\Right");
+    }
+
+    function it_should_return_a_left_projection_for_toRight() {
+        $this->toRight(self::ALTERNATIVE)
+             ->shouldHaveType("PlasmaConduit\either\Left");
+    }
+
+    function it_should_return_a_evaluated_left_projection_for_toRight() {
+        $this->toRight(function() { return None::ALTERNATIVE; })
+             ->shouldHaveType("PlasmaConduit\either\Left");
     }
 
     function it_should_return_null_for_orNull() {
