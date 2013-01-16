@@ -1,27 +1,27 @@
 {
-    "hash": "03a9fe5ace6880acdc3a63394045f8e7",
+    "hash": "3bb5d635e09bea77129bd44bc46a1eb7",
     "packages": [
         {
             "name": "plasmaconduit/either",
-            "version": "dev-master",
+            "version": "v0.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/JosephMoniz/php-either",
-                "reference": "69318790339fd62ba39ddaa3df0a36bb8fc826d2"
+                "reference": "v0.1.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/JosephMoniz/php-either/archive/69318790339fd62ba39ddaa3df0a36bb8fc826d2.zip",
-                "reference": "69318790339fd62ba39ddaa3df0a36bb8fc826d2",
+                "url": "https://github.com/JosephMoniz/php-either/archive/v0.1.0.zip",
+                "reference": "v0.1.0",
                 "shasum": ""
             },
             "require": {
-                "plasmaconduit/option": "dev-master"
+                "plasmaconduit/option": "0.1.*"
             },
             "require-dev": {
                 "phpspec/phpspec2": "*"
             },
-            "time": "2013-01-16 05:47:13",
+            "time": "2013-01-16 06:08:04",
             "type": "library",
             "autoload": {
                 "psr-0": {
@@ -313,7 +313,7 @@
 
     ],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "plasmaconduit/either": 20
-    }
+    "stability-flags": [
+
+    ]
 }
