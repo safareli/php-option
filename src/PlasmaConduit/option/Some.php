@@ -2,6 +2,8 @@
 namespace PlasmaConduit\option;
 use PlasmaConduit\option\Option;
 use PlasmaConduit\option\None;
+use PlasmaConduit\either\Left;
+use PlasmaConduit\either\Right;
 use Exception;
 
 class Some implements Option {
@@ -91,12 +93,24 @@ class Some implements Option {
         return $this->_value;
     }
 
+    /**
+     * This returns the wrappd value as a `Left` projection.
+     *
+     * @param {callable|Any} $right - The alternative `Right` value
+     * @return {Either}             - The `Left` projection
+     */
     public function toLeft($right) {
-        //
+        return new Left($this->get());
     }
 
+    /**
+     * This returns the wrapped value as a `Right` projection.
+     *
+     * @param {callable|Any} $left - The alternative `Left` value
+     * @return {Either}            - The `Right` projection
+     */
     public function toRight($left) {
-        //
+        return new Right($this->get());
     }
 
     /**

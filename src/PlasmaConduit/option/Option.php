@@ -54,12 +54,22 @@ interface Option {
     public function orNull();
 
     /**
-     * Not yet implemented
+     * Returns a `Left` projection with the wrapped value when called on a
+     * `Some. Otherwise it returns a `Right` projection containing the
+     * evaluated value of `$right`.
+     *
+     * @param {callable|Any} $right - The alternative `Right` projection
+     * @return {Either}             - The projected `Either` value
      */
     public function toLeft($right);
 
     /**
-     * Not yet implemented
+     * Returns a `Right` projection with the wrapped value when called on a
+     * `Some. Otherwise it returns a `Left` projection containing the
+     * evaluated value of `$left`.
+     *
+     * @param {callable|Any} $left - The alternative `Left` projection
+     * @return {Either}            - The projected `Either` value
      */
     public function toRight($left);
 

@@ -99,12 +99,32 @@ class None implements Option {
         return null;
     }
 
+    /**
+     * This returns the evaluated value of `$right` as a `Right` projection.
+     *
+     * @param {callable|Any} $right - The alternative `Right` value
+     * @return {Either}             - The alternative `Right` value
+     */
     public function toLeft($right) {
-        //
+        if (is_callable($right)) {
+            return new Right($right());
+        } else {
+            return new Right($right);
+        }
     }
 
+    /**
+     * This returns the evaluated value of `$left` as a `Left` projection.
+     *
+     * @param {callable|Any} $right - The alternative `Left` value
+     * @return {Either}             - The alternative `Left` value
+     */
     public function toRight($left) {
-        //
+        if (is_callable($left)) {
+            return new Left($left());
+        } else {
+            return new Left($left);
+        }
     }
 
     /**
