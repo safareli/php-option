@@ -82,7 +82,7 @@ class None implements Option {
             $evaluated = $alternative();
             if (!($evaluated instanceof Option)) {
                 throw new Exception(
-                    "Result of $alternative must return an `Option` type"
+                    "Result of alternative must return an `Option` type"
                 );
             }
             return $evaluated;
