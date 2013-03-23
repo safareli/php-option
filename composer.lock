@@ -1,34 +1,64 @@
 {
-    "hash": "81d86e21721ae0abc90d3154f06b5dff",
+    "hash": "f015d47ca591f86708b354a629d915d3",
     "packages": [
         {
             "name": "plasmaconduit/either",
-            "version": "v0.1.0",
+            "version": "0.2.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/JosephMoniz/php-either",
-                "reference": "v0.1.0"
+                "url": "https://github.com/JosephMoniz/php-either.git",
+                "reference": "v0.2.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/JosephMoniz/php-either/archive/v0.1.0.zip",
-                "reference": "v0.1.0",
+                "url": "https://api.github.com/repos/JosephMoniz/php-either/zipball/v0.2.1",
+                "reference": "v0.2.1",
                 "shasum": ""
             },
             "require": {
-                "plasmaconduit/option": "0.1.*"
+                "plasmaconduit/map": "0.1.*",
+                "plasmaconduit/option": "0.2.*"
             },
             "require-dev": {
                 "phpspec/phpspec2": "*"
             },
-            "time": "2013-01-16 06:08:04",
             "type": "library",
             "autoload": {
                 "psr-0": {
                     "": "src"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/"
+            "notification-url": "https://packagist.org/downloads/",
+            "time": "2013-03-23 06:30:06"
+        },
+        {
+            "name": "plasmaconduit/map",
+            "version": "0.1.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/JosephMoniz/php-map.git",
+                "reference": "v0.1.9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/JosephMoniz/php-map/zipball/v0.1.9",
+                "reference": "v0.1.9",
+                "shasum": ""
+            },
+            "require": {
+                "plasmaconduit/option": "0.2.*"
+            },
+            "require-dev": {
+                "phpspec/phpspec2": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "time": "2013-03-23 03:36:43"
         }
     ],
     "packages-dev": [
@@ -52,7 +82,6 @@
             "suggest": {
                 "Hamcrest": "1.0.0"
             },
-            "time": "2012-01-24 12:22:39",
             "type": "library",
             "autoload": {
                 "psr-0": {
@@ -73,17 +102,18 @@
             "description": "Mockery is a simple yet flexible PHP mock object framework for use in unit testing with PHPUnit, PHPSpec or any other testing framework. Its core goal is to offer a test double framework with a succint API capable of clearly defining all possible object operations and interactions using a human readable Domain Specific Language (DSL). Designed as a drop in alternative to PHPUnit's phpunit-mock-objects library, Mockery is easy to integrate with PHPUnit and can operate alongside phpunit-mock-objects without the World ending.",
             "homepage": "http://github.com/padraic/mockery",
             "keywords": [
-                "testing",
-                "library",
                 "BDD",
                 "TDD",
-                "test",
-                "mockery",
+                "library",
                 "mock",
+                "mock objects",
+                "mockery",
                 "stub",
+                "test",
                 "test double",
-                "mock objects"
-            ]
+                "testing"
+            ],
+            "time": "2012-01-24 12:22:39"
         },
         {
             "name": "phpspec/php-diff",
@@ -95,11 +125,10 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/phpspec/php-diff/archive/8d82ac415225fac373a4073ba14b1fe286aa2312.zip",
+                "url": "https://api.github.com/repos/phpspec/php-diff/zipball/8d82ac415225fac373a4073ba14b1fe286aa2312",
                 "reference": "8d82ac415225fac373a4073ba14b1fe286aa2312",
                 "shasum": ""
             },
-            "time": "2012-11-08 08:55:45",
             "type": "library",
             "autoload": {
                 "psr-0": {
@@ -116,7 +145,8 @@
                     "homepage": "http://github.com/chrisboulton"
                 }
             ],
-            "description": "A comprehensive library for generating differences between two hashable objects (strings or arrays)."
+            "description": "A comprehensive library for generating differences between two hashable objects (strings or arrays).",
+            "time": "2012-11-08 08:55:45"
         },
         {
             "name": "phpspec/phpspec2",
@@ -124,23 +154,22 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/phpspec2.git",
-                "reference": "4eb75390b81363664d9e7519631cdb87c79fe23b"
+                "reference": "c6140c098d79a4ed10eba2411817a32f72d4a367"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/phpspec/phpspec2/archive/4eb75390b81363664d9e7519631cdb87c79fe23b.zip",
-                "reference": "4eb75390b81363664d9e7519631cdb87c79fe23b",
+                "url": "https://api.github.com/repos/phpspec/phpspec2/zipball/c6140c098d79a4ed10eba2411817a32f72d4a367",
+                "reference": "c6140c098d79a4ed10eba2411817a32f72d4a367",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.1",
                 "mockery/mockery": "0.7.*",
+                "php": ">=5.3.1",
+                "phpspec/php-diff": "*@dev",
                 "symfony/console": ">=2.1.0,<2.2.0",
                 "symfony/event-dispatcher": ">=2.1.0,<2.2.0",
-                "symfony/finder": ">=2.1.0,<2.2.0",
-                "phpspec/php-diff": "*@dev"
+                "symfony/finder": ">=2.1.0,<2.2.0"
             },
-            "time": "2012-10-31 15:46:10",
             "bin": [
                 "bin/phpspec"
             ],
@@ -169,11 +198,12 @@
             "homepage": "http://phpspec.net/",
             "keywords": [
                 "BDD",
+                "SpecBDD",
                 "TDD",
                 "spec",
-                "SpecBDD",
                 "specification"
-            ]
+            ],
+            "time": "2013-02-08 11:00:28"
         },
         {
             "name": "symfony/console",
@@ -181,19 +211,18 @@
             "target-dir": "Symfony/Component/Console",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/Console",
-                "reference": "v2.1.7"
+                "url": "https://github.com/symfony/Console.git",
+                "reference": "256b00333ab08ce1f6264152b22e08e4138275eb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/symfony/Console/archive/v2.1.7.zip",
-                "reference": "v2.1.7",
+                "url": "https://api.github.com/repos/symfony/Console/zipball/256b00333ab08ce1f6264152b22e08e4138275eb",
+                "reference": "256b00333ab08ce1f6264152b22e08e4138275eb",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
             },
-            "time": "2013-01-17 15:20:05",
             "type": "library",
             "autoload": {
                 "psr-0": {
@@ -215,7 +244,8 @@
                 }
             ],
             "description": "Symfony Console Component",
-            "homepage": "http://symfony.com"
+            "homepage": "http://symfony.com",
+            "time": "2013-03-01 16:50:10"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -223,13 +253,13 @@
             "target-dir": "Symfony/Component/EventDispatcher",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/EventDispatcher",
-                "reference": "v2.1.7"
+                "url": "https://github.com/symfony/EventDispatcher.git",
+                "reference": "v2.1.8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/symfony/EventDispatcher/archive/v2.1.7.zip",
-                "reference": "v2.1.7",
+                "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/v2.1.8",
+                "reference": "v2.1.8",
                 "shasum": ""
             },
             "require": {
@@ -242,7 +272,6 @@
                 "symfony/dependency-injection": "2.1.*",
                 "symfony/http-kernel": "2.1.*"
             },
-            "time": "2013-01-11 00:31:43",
             "type": "library",
             "autoload": {
                 "psr-0": {
@@ -264,7 +293,8 @@
                 }
             ],
             "description": "Symfony EventDispatcher Component",
-            "homepage": "http://symfony.com"
+            "homepage": "http://symfony.com",
+            "time": "2013-02-11 11:26:14"
         },
         {
             "name": "symfony/finder",
@@ -272,19 +302,18 @@
             "target-dir": "Symfony/Component/Finder",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/Finder",
-                "reference": "v2.1.7"
+                "url": "https://github.com/symfony/Finder.git",
+                "reference": "69858f868c0caabe3d859c448f98d249541c0489"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/symfony/Finder/archive/v2.1.7.zip",
-                "reference": "v2.1.7",
+                "url": "https://api.github.com/repos/symfony/Finder/zipball/69858f868c0caabe3d859c448f98d249541c0489",
+                "reference": "69858f868c0caabe3d859c448f98d249541c0489",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
             },
-            "time": "2013-01-09 08:51:07",
             "type": "library",
             "autoload": {
                 "psr-0": {
@@ -306,7 +335,8 @@
                 }
             ],
             "description": "Symfony Finder Component",
-            "homepage": "http://symfony.com"
+            "homepage": "http://symfony.com",
+            "time": "2013-03-06 19:26:55"
         }
     ],
     "aliases": [
@@ -314,6 +344,12 @@
     ],
     "minimum-stability": "dev",
     "stability-flags": [
+
+    ],
+    "platform": [
+
+    ],
+    "platform-dev": [
 
     ]
 }
