@@ -5,6 +5,11 @@ use PlasmaConduit\either\Right;
 use PlasmaConduit\option\Option;
 use Exception;
 
+/**
+ * Class None
+ *
+ * @package PlasmaConduit\option
+ */
 class None implements Option {
 
     /**
@@ -17,7 +22,7 @@ class None implements Option {
      * the `None` class and the class type carries this information so this
      * method will always return true.
      *
-     * @return {Boolean} - Always true
+     * @return bool - Always true
      */
     public function isEmpty() {
         return true;
@@ -28,7 +33,7 @@ class None implements Option {
      * is the `None` class and the class type carries this information so this
      * method will always return false.
      *
-     * @return {Boolean} - Always false
+     * @return bool - Always false
      */
     public function nonEmpty() {
         return false;
@@ -38,7 +43,7 @@ class None implements Option {
      * This method should never be called because you can't get a value from
      * nothing. So this throws unconditionally.
      *
-     * @throws {Exception}
+     * @throws Exception
      */
     public function get() {
         throw new Exception("None#get() should never be called");
@@ -49,8 +54,8 @@ class None implements Option {
      * `Some` and if it's `None` it will return `$default` instead. Seeing how
      * this is the `None` class, this will always return the `$default`
      *
-     * @ param {Any} $default - The default value if no value is present
-     * @ return {Any}         - The `$default` value
+     * @param mixed $default - The default value if no value is present
+     * @return mixed         - The `$default` value
      */
     public function getOrElse($default) {
         if (is_callable($default)) {
@@ -66,8 +71,9 @@ class None implements Option {
      * However, this is the `None` class so it will always return
      * the evaluated `$alternative`.
      *
-     * @param {callable|Option} $alternative - The alternative Option
-     * @return {Option}                      - Always returns `$alternative`
+     * @param Callable|Option $alternative - The alternative Option
+     * @return Option                      - Always returns `$alternative`
+     * @throws Exception
      */
     public function orElse($alternative) {
         if (!is_callable($alternative) && !($alternative instanceof Option)) {
@@ -95,7 +101,7 @@ class None implements Option {
      * returns null when called on the `None` class. This is the `None` class
      * so it will always return null
      *
-     * @return {null} - Always null
+     * @return null - Always null
      */
     public function orNull() {
         return null;
@@ -104,8 +110,8 @@ class None implements Option {
     /**
      * This returns the evaluated value of `$right` as a `Right` projection.
      *
-     * @param {callable|Any} $right - The alternative `Right` value
-     * @return {Either}             - The alternative `Right` value
+     * @param callable|mixed $right - The alternative `Right` value
+     * @return Either               - The alternative `Right` value
      */
     public function toLeft($right) {
         if (is_callable($right)) {
@@ -118,8 +124,8 @@ class None implements Option {
     /**
      * This returns the evaluated value of `$left` as a `Left` projection.
      *
-     * @param {callable|Any} $right - The alternative `Left` value
-     * @return {Either}             - The alternative `Left` value
+     * @param Callable|mixed $left - The alternative `Left` value
+     * @return Either               - The alternative `Left` value
      */
     public function toRight($left) {
         if (is_callable($left)) {
@@ -139,8 +145,9 @@ class None implements Option {
      * class, so it will never call the `$mapper` and will return `None`
      * immediately.
      *
-     * @param {callable} $mapper - Function to disregard
-     * @return {Option}          - Always `None`
+     * @param Callable $mapper - Function to disregard
+     * @return Option          - Always `None`
+     * @throws Exception
      */
     public function map($mapper) {
         if (!is_callable($mapper)) {
@@ -153,7 +160,9 @@ class None implements Option {
      * This takes a callable and completely disregards it, returning `None`
      * immediately.
      *
-     * @return {Option} - Always `None`
+     * @param Callable $flatMapper
+     * @return $this|Option
+     * @throws \Exception
      */
     public function flatMap($flatMapper) {
         if (!is_callable($flatMapper)) {
@@ -166,7 +175,9 @@ class None implements Option {
      * This function takes a callable as a predicate, disregards it and returns
      * `None` immediately
      *
-     * @return {Option} - Always `None`
+     * @param Callable $predicate
+     * @return $this|Option
+     * @throws \Exception
      */
     public function filter($predicate) {
         if (!is_callable($predicate)) {

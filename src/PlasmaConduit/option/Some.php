@@ -15,7 +15,7 @@ class Some implements Option {
      * In other words, once a value is wrapped in a `Some` container it is
      * immutable within the container.
      *
-     * @param {Any} $value - The value to wrap
+     * @param mixed $value - The value to wrap
      */
     public function __construct($value) {
         $this->_value = $value;
@@ -26,7 +26,7 @@ class Some implements Option {
      * the `Some` class and the class type carries this information so this
      * method will always return false.
      *
-     * @return {Boolean} - Always false
+     * @return bool - Always false
      */
     public function isEmpty() {
         return false;
@@ -37,7 +37,7 @@ class Some implements Option {
      * is the `Some` class and the class type carries this information so this
      * method will always return true.
      *
-     * @return {Boolean} - Always true
+     * @return bool - Always true
      */
     public function nonEmpty() {
         return true;
@@ -46,7 +46,7 @@ class Some implements Option {
     /**
      * This returns the wrapped value.
      *
-     * @return {Any} - The wrapped value
+     * @return mixed - The wrapped value
      */
     public function get() {
         return $this->_value;
@@ -57,8 +57,8 @@ class Some implements Option {
      * `Some` and if it's `None` it will return `$default` instead. Seeing how
      * this is the `Some` class, this will always return the wrapped value
      *
-     * @ param {Any} $default - The default value if no value is present
-     * @ return {Any}         - The wrapped value
+     * @param mixed $default - The default value if no value is present
+     * @return mixed         - The wrapped value
      */
     public function getOrElse($default) {
         return $this->_value;
@@ -69,8 +69,9 @@ class Some implements Option {
      * this `Option` type is `None` it returns the evalutated alternative type.
      * However, this is the `Some` class so it will always return itself.
      *
-     * @param {callable|Option} $alternative - The alternative Option
-     * @return {Option}                      - Always returns itself
+     * @param Callable|Option $alternative - The alternative Option
+     * @return Option                      - Always returns itself
+     * @throws Exception
      */
     public function orElse($alternative) {
         if (!is_callable($alternative) && !($alternative instanceof Option)) {
@@ -87,7 +88,7 @@ class Some implements Option {
      * returns null when called on the `None` class. This is the `Some` class
      * so it will always return the wrapped value
      *
-     * @return {Any|null} - The wrapped value or null
+     * @return mixed - The wrapped value or null
      */
     public function orNull() {
         return $this->_value;
@@ -96,8 +97,8 @@ class Some implements Option {
     /**
      * This returns the wrappd value as a `Left` projection.
      *
-     * @param {callable|Any} $right - The alternative `Right` value
-     * @return {Either}             - The `Left` projection
+     * @param Callable|mixed $right - The alternative `Right` value
+     * @return Either               - The `Left` projection
      */
     public function toLeft($right) {
         return new Left($this->get());
@@ -106,8 +107,8 @@ class Some implements Option {
     /**
      * This returns the wrapped value as a `Right` projection.
      *
-     * @param {callable|Any} $left - The alternative `Left` value
-     * @return {Either}            - The `Right` projection
+     * @param Callable|mixed$left - The alternative `Left` value
+     * @return Either             - The `Right` projection
      */
     public function toRight($left) {
         return new Right($this->get());
@@ -122,8 +123,9 @@ class Some implements Option {
      * be called and instead we return `None` immediately. This is the `Some`
      * class, so it will always call the function and always return `Some`.
      *
-     * @param {callable} $mapper - Function to call on the wrapped value
-     * @return {Option}          - The newly produced Some
+     * @param Callable $mapper - Function to call on the wrapped value
+     * @return Option          - The newly produced Some
+     * @throws Exception
      */
     public function map($mapper) {
         if (!is_callable($mapper)) {
@@ -138,8 +140,9 @@ class Some implements Option {
      * `Option` type returned by the passed in callable is returned by this
      * method
      *
-     * @param {callable} $flatMapper - Fuction to call on the wrapped value
-     * @return {Option}              - The `Option` produced by the flat mapper
+     * @param Callable $flatMapper - Fuction to call on the wrapped value
+     * @return Option              - The `Option` produced by the flat mapper
+     * @throws Exception
      */
     public function flatMap($flatMapper) {
         if (!is_callable($flatMapper)) {
@@ -160,8 +163,9 @@ class Some implements Option {
      * true the current `Some` is returned. If the predicate returns false
      * a new `None` is returned.
      *
-     * @param {callable} $predicate - The predicate to check the wrapped value
-     * @return {Option}             - `Some` on success `None` on failure
+     * @param Callable $predicate - The predicate to check the wrapped value
+     * @return Option             - `Some` on success `None` on failure
+     * @throws Exception
      */
     public function filter($predicate) {
         if (!is_callable($predicate)) {
