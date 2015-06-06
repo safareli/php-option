@@ -1,9 +1,10 @@
 <?php
 namespace PlasmaConduit\option;
+
+use Exception;
+use PlasmaConduit\either\Either;
 use PlasmaConduit\either\Left;
 use PlasmaConduit\either\Right;
-use PlasmaConduit\option\Option;
-use Exception;
 
 /**
  * Class None
@@ -15,7 +16,8 @@ class None implements Option {
     /**
      * This constructor does absolutely nothing
      */
-    public function __construct() { /**/ }
+    public function __construct() { /**/
+    }
 
     /**
      * This function is used to signify if the Option type is empty. This is

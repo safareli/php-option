@@ -1,5 +1,6 @@
 <?php
 namespace PlasmaConduit\option;
+
 use Exception;
 use PlasmaConduit\either\Either;
 

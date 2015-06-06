@@ -1,10 +1,10 @@
 <?php
 namespace PlasmaConduit\option;
-use PlasmaConduit\option\Option;
-use PlasmaConduit\option\None;
+
+use Exception;
+use PlasmaConduit\either\Either;
 use PlasmaConduit\either\Left;
 use PlasmaConduit\either\Right;
-use Exception;
 
 class Some implements Option {
 
@@ -107,7 +107,7 @@ class Some implements Option {
     /**
      * This returns the wrapped value as a `Right` projection.
      *
-     * @param Callable|mixed$left - The alternative `Left` value
+     * @param Callable|mixed $left - The alternative `Left` value
      * @return Either             - The `Right` projection
      */
     public function toRight($left) {
